@@ -26,4 +26,6 @@
   :components ((:module "test"
                 :components ((:file "tests"))))
   :perform (asdf:test-op (op c)
-             (uiop:symbol-call :cl-aead-test :run-all-tests)))
+             (let ((result (uiop:symbol-call :cl-aead-test :run-all-tests)))
+               (unless result
+                 (error "Tests failed")))))
