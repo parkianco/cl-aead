@@ -7,7 +7,7 @@
   :description "Pure Common Lisp AEAD implementations: ChaCha20-Poly1305, XChaCha20-Poly1305, AES-256-GCM"
   :author "Parkian Company LLC"
   :license "BSD-3-Clause"
-  :version "1.0.0"
+  :version "0.1.0"
   :serial t
   :components ((:file "package")
                (:module "src"
@@ -24,7 +24,7 @@
   :depends-on (#:cl-aead)
   :serial t
   :components ((:module "test"
-                :components ((:file "tests"))))
+                :components ((:file "test-aead"))))
   :perform (asdf:test-op (op c)
              (let ((result (uiop:symbol-call :cl-aead-test :run-all-tests)))
                (unless result
